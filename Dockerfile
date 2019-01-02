@@ -39,12 +39,12 @@ RUN apt-get install -y \
   libboost-thread-dev
 
 # If you need to rebuild node from source.
-# RUN git clone https://github.com/raven-dark/ravendark.git && \
-#  cd ravendark && \
+# RUN git clone https://github.com/raven-dark/raven-dark.git && \
+#  cd raven-dark && \
 #  ./autogen.sh && \
-#  ./configure --without-gui && make -j2
+#  ./configure --without-gui && make
 
-RUN tar -xzvf bin.tar.gz
+RUN tar -xzvf bin-0.2.0.tar.gz
 
 COPY bin /ravendark
 
