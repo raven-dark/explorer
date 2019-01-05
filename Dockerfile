@@ -44,9 +44,12 @@ RUN apt-get install -y \
 #  ./autogen.sh && \
 #  ./configure --without-gui && make
 
-RUN tar -xzvf bin-0.2.0.tar.gz
+RUN mkdir /ravendark
 
-COPY bin /ravendark
+RUN wget -qO- https://github.com/raven-dark/bins/raw/master/raven-dark-0.2.0-ubuntu-rc1.tar.gz | tar xvz -C /ravendark
+
+RUN chmod +x /ravendark/ravendarkd
+RUN chmod +x /ravendark/ravendark-cli
 
 RUN npm config set package-lock false && npm install raven-dark/ravendark-node
 
@@ -63,9 +66,6 @@ RUN apt-get purge -y \
 WORKDIR /xrd-node
 COPY ravendarkcore-node.json ./dashcore-node.json
 COPY ravendark.conf ./data/dash.conf
-
-RUN chmod +x /ravendark/ravendarkd
-RUN chmod +x /ravendark/ravendark-cli
 
 #PORT 3001 is for insight, 9998 is for rpc, 7208 is p2p
 EXPOSE 80 6666 6665
