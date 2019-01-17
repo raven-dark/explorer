@@ -6,7 +6,7 @@
 
 ## Run
 
-`sudo docker run -p 80:80 -p 6666:6666 -v ~/data:/xrd-node/data -d --name xrd-insight xrd:latest`
+`sudo docker run -p 80:80 -p 6666:6666 -v ~/data:/rvn-node/data -d --name xrd-insight xrd:latest`
 
 ## Watch Logs
 
