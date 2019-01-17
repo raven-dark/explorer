@@ -59,7 +59,7 @@ RUN chmod +x entrypoint.sh
 
 VOLUME /rvn-node/data
 
-EXPOSE 80 16666
+EXPOSE 80 6666
 
 HEALTHCHECK --interval=120s --timeout=120s --retries=5 CMD curl -f http://localhost:80/api/sync
 
