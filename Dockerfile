@@ -2,7 +2,6 @@ FROM ubuntu:trusty
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y \
     wget bsdmainutils curl cmake build-essential libtool autotools-dev automake \
     pkg-config libssl-dev libevent-dev bsdmainutils python3 libboost-all-dev git \
@@ -40,14 +39,14 @@ RUN wget -qO- https://github.com/raven-dark/bins/raw/master/raven-dark-0.2.1-ubu
 
 RUN chmod +x /ravendark/ravendarkd
 RUN chmod +x /ravendark/ravendark-cli
-RUN echo 2
+
 WORKDIR /
 RUN npm config set package-lock false && \
   npm install raven-dark/ravencore-node
 
 RUN ln -sf /node_modules/ravencore-node/bin/ravencore-node /usr/bin/ravencore-node
 RUN ravencore-node create rvn-node
-RUN echo 2
+
 WORKDIR /rvn-node
 RUN  ravencore-node install raven-dark/insight-api \
   && ravencore-node install raven-dark/insight-ui
