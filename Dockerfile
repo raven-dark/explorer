@@ -35,7 +35,7 @@ RUN ln -sf /usr/local/nvm/versions/node/v$NODE_VERSION/bin/npm /usr/bin/npm
 
 RUN mkdir -p /ravendark
 
-RUN wget -qO- https://github.com/raven-dark/bins/raw/master/raven-dark-0.2.1-ubuntu-rc2.tar.gz | tar xvz -C /ravendark
+RUN wget -qO- https://github.com/raven-dark/raven-dark/releases/download/0.3.0/ravendark-0.3.0-ubuntu-14.04.tar.gz | tar xvz -C /ravendark
 
 RUN chmod +x /ravendark/ravendarkd
 RUN chmod +x /ravendark/ravendark-cli
